@@ -6,14 +6,20 @@ pipeline {
 
         stage ('Checkout'){
             steps{
-                checkout scm
+                 checkout scm
             }
         }
 
-        stage ('Install modules'){
-            steps{
-                sh 'java -version'
+        stage ('Java version'){
+      	    steps{
+                 sh 'java -version'
             }
         } 
+
+    	stage ('Maven version'){
+	     steps{
+                 sh 'mvn -version'
+      	     }
+    	}
     }
 }

@@ -2,10 +2,10 @@ pipeline {
     
     agent { label 'maven-agent' }
 
-    //tools { 
-        //maven 'maven_3.6.2' 
-        //jdk 'jdk_8u221' 
-    //}
+    tools { 
+        maven 'maven_3.6.2'
+        jdk 'jdk_8u221' 
+    }
 
     stages {
 
@@ -17,17 +17,13 @@ pipeline {
 
         stage ('Java version'){
       	    steps{
-	        container('jnlp') {
-			sh 'java -version'
-		}
+		sh 'java -version'
             }
         } 
 
     	stage ('Maven version'){
 	     steps{
-	         container('maven') {
-                     sh 'mvn -version'
-                 }
+             	sh 'mvn -version'
       	     }
     	}
     }

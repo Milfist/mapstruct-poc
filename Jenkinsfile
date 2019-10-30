@@ -12,7 +12,7 @@ pipeline {
 
         stage ('Install modules'){
             steps{
-                sh 'mvn install'
+                sh 'java -version'
             }
         } 
     }

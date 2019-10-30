@@ -3,7 +3,7 @@ pipeline {
     agent { label 'maven-agent' }
 
     //tools { 
-    //    maven 'maven_3.6.2'
+    //    maven 'maven_3.6.2', 
     //    jdk 'jdk_8u221' 
     //}
 
@@ -15,15 +15,27 @@ pipeline {
             }
         }
 
-        stage ('Java version'){
+        stage ('Java version JNLP'){
       	    steps{
-		sh 'java -version'
+	        container('jnlp') {
+			sh 'java -version'
+		}
             }
         } 
 
+	stage ('Java version MAVEN'){
+      	    steps{
+	        container('maven') {
+			sh 'java -version'
+		}
+            }
+        } 	
+
     	stage ('Maven version'){
 	     steps{
-             	sh 'mvn -version'
+	         container('maven') {
+                     sh 'mvn -version'
+                 }
       	     }
     	}
     }

@@ -2,10 +2,10 @@ pipeline {
     
     agent { label 'maven-agent' }
 
-    tools { 
+   // tools { 
         //maven 'maven_3.6.2'
         //jdk 'jdk_8u221' 
-    }
+   // }
 
     stages {
 

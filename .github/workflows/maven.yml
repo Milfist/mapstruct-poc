@@ -22,3 +22,10 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.13
+      with:
+          name: mapstruct-poc
+          token: ${{secrets.CODE_COV_TOKEN}}
+          file: ${{github.workspace}}/target/site/jacoco/jacoco.xml
+          flags: unittests
